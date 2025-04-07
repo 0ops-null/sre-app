@@ -2,7 +2,6 @@ import os
 import time
 import random
 
-from api import init_api
 from flask import Flask, Response, request, jsonify, g
 from collections import deque
 from prometheus_client import Gauge, generate_latest
@@ -10,8 +9,6 @@ from functools import lru_cache
 
 app = Flask(__name__)
 
-
-init_api(app)
 
 
 is_ready = True
@@ -66,7 +63,7 @@ def disable_readiness():
 
 @app.route('/payload', methods=['GET'])
 def payload():
-    n = random.randint(1, 10000)  0
+    n = random.randint(1, 10000)
     fib = fibonacci(n)
     return jsonify(n=n, fib=fib)
 
