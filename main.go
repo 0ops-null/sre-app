@@ -1,4 +1,4 @@
-# original version by Leonardo Comelli
+// original version by Leonardo Comelli
 package main
 
 import (
