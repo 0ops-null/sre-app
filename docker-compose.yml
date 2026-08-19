@@ -1,0 +1,13 @@
+services:
+  otus-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: otus-app
+    ports:
+      - "8080:80"
+    environment:
+      PORT: "80"
+      APP_USER: "user"
+      APP_PASSWORD: "spassword"
+    restart: unless-stopped
