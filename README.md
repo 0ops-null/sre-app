@@ -16,6 +16,7 @@ curl -i http://url/healthz
 app.py
 
 #############################################
+
 kubectl apply -f k8s/ --dry-run=server
 kubectl apply -f k8s/
 
