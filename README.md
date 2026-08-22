@@ -15,3 +15,9 @@ curl -i http://url/healthz
 # Python app with prometheus metrics
 app.py
 
+#############################################
+kubectl apply -f k8s/ --dry-run=server
+kubectl apply -f k8s/
+
+helm template otus-app-helm .
+helm install otus-app-helm .
