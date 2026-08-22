@@ -1,0 +1,32 @@
+replicaCount: 4
+
+image:
+  repository: harbor.ntechnology.dev/iac/sre-app-otus-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imagePullSecret: harbor-registry
+
+strategy:
+  rollingUpdate:
+    maxUnavailable: 25%
+    maxSurge: 25%
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+
+env:
+  APP_USER: user
+  APP_PASSWORD: spassword
+  PORT: "80"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+  limits:
+    cpu: 500m
+    memory: 256Mi
